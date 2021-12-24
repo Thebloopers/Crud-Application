@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="editUserDetails.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Edit Page</title>
+
+</head>
+<body>
+    <form id="FORM">   
+    <div class="wrapper bg-white mt-sm-5">
+        <h4 class="pb-4 border-bottom">Employee Account</h4><br>
+        <div class="d-flex align-items-start py-3 border-bottom"> <img src="auto=compress&cs=tinysrgb&dpr=1&w=500" class="img" alt="" id="Image">
+            <div class="pl-sm-4 pl-2" id="img-section"> <b>Profile Photo</b>
+                <p>Accepted file type .png. Less than 1MB</p> <label for="profilePic">UPLOAD PHOTO</label><input id="profilePic" type="file" name="photos" required><br>
+            </div>
+        </div>
+        <div class="py-2">
+            <div class="row py-2">
+                <div class="col-md-6"> <label for="firstname">First Name</label> <input id="firstname" type="text" name="firstName" class="bg-light form-control" placeholder="Steve" required> </div>
+                <div class="col-md-6 pt-md-0 pt-3"> <label for="lastname">Last Name</label> <input id="lastname" type="text" name="lastName" class="bg-light form-control" placeholder="Smith"> </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-md-6"> <label for="email">Email Address</label> <input id="email" type="text" name="email" class="bg-light form-control" placeholder="steve_@email.com" required> </div>
+                <div class="col-md-6 pt-md-0 pt-3"> <label for="phone">Phone Number</label> <input id="phone" type="tel" name="contact_no" class="bg-light form-control" placeholder="+9155555 55555"> </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-md-6"> <label for="password">Password</label> <input id="password" type="password" name="password" class="bg-light form-control"> </div>
+                <div class="col-md-6"> <label for="confirmPassword">Confirm Password</label> <input id="confirmPassword" type="password" oninput="ConfirmPassword()" class="bg-light form-control"></div><span id="msg" style="margin-top: 55px;margin-left: 290px;color: red;display: none;position: absolute;">*** password doesnot match</span>
+            </div>
+            <br>
+            <div class="py-3 pb-4 border-bottom"> <button type="submit" class="btn btn-primary mr-3">Save Changes</button> <button onclick="location.href = 'signup.html';" class="btn border button">Cancel</button> </div>
+        </div>
+    </div>
+</form>
+    
+
+    <script>
+        var Form = document.querySelector('#FORM');
+        var password = document.querySelector('#password');
+        var confirmPassword = document.querySelector('#confirmPassword');
+        var SUBM = document.querySelector('#SUBM')
+
+        ConfirmPassword = () => {
+            if(password.value !== confirmPassword.value){
+                document.querySelector('#msg').style.display = 'block';
+              }
+              if(password.value == confirmPassword.value){
+                  document.querySelector('#msg').innerHTML = 'Password Matched';
+                  document.querySelector('#msg').style.color = '#27ff00';
+                document.querySelector('#msg').style.display = 'block';
+              }
+        }
+        var photo = localStorage.getItem('photo')
+        var id = localStorage.getItem('id')
+        var a =  document.querySelector('#Image')
+        a.src = `../server/${photo}`
+        
+        Form.addEventListener('submit', (e) => {
+
+            e.preventDefault();
+
+            swal('ID edited successfully')
+
+            setTimeout(() => {               
+            fetch(`http://localhost:3000/api/update/${this.id}`,{
+            method : 'PUT',
+            // headers : {
+            //     'content-Type':'application/json',             
+            // },
+            body : new FormData(Form)
+            })
+            .then(res => res.json())
+            .then(data => console.log(data))  
+            window.location.href = 'signup.html'                                 
+        }, 3000);
+    })
+
+    </script>
+</body>
+</html>

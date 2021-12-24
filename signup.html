@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="viewUserDetails.css">
+    <title>Signup Form</title>
+</head>
+<body  style="background-color: rgb(92, 83, 83);">
+
+  <!-- USER DETAILS -->
+
+  <div style=" display:none;margin-left: 90px;" class="page-content page-container" id="page-content">
+    <div class="padding">
+      <div class="row container d-flex justify-content-center">
+          <div class="col-xl-6 col-md-12">
+              <div class="card user-card-full">
+                  <div class="row m-l-0 m-r-0">
+                      <div class="col-sm-4 bg-c-lite-green user-profile">
+                          <div class="card-block text-center text-white">
+                              <div class="m-b-25"> <img id="userImg" src="" class="img-radius" alt="User-Profile-Image"> </div>
+                              <h6 id="userName" class="f-w-600">Hembo Tingor</h6>
+                              <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                          </div>
+                      </div>
+                      <div class="col-sm-8">
+                          <div class="card-block">
+                              <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                              <div class="row">
+                                  <div class="col-sm-6">
+                                      <p class="m-b-10 f-w-600">Email</p>
+                                      <h6 id="userEmail" class="text-muted f-w-400">rntng@gmail.com</h6>
+                                  </div>
+                                  <div class="col-sm-6">
+                                      <p class="m-b-10 f-w-600">Phone</p>
+                                      <h6 id="userPhone"  class="text-muted f-w-400">98979989898</h6>
+                                  </div>
+                              </div>
+                              <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6>
+                              <div class="row">
+                                  <div class="col-sm-6">
+                                      <p class="m-b-10 f-w-600">Recent</p>
+                                      <h6 class="text-muted f-w-400">Sam Disuja</h6>
+                                  </div>
+                                  <div class="col-sm-6">
+                                      <p class="m-b-10 f-w-600">Most Viewed</p>
+                                      <h6 class="text-muted f-w-400">Dinoter husainm</h6>
+                                  </div>
+                                  <div class="py-3 pb-4 border-bottom"> <button type="submit" onclick="location.href = 'editUserDetails.html';" class="btn btn-primary mr-3">EDIT</button> <button onclick="location.href = 'signup.html';" class="btn btn-secondary">Cancel</button> </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- ADD BUTTON -->
+        <div style="position:relative;"><button style="padding-left: 20px;padding-right:20px;width:100px;height:100px;border-radius:50%;font-weight:900;font-size:larger;position: relative;" type="button" onmouseout="HIDE()" onmouseover="DETAILS()" onclick="ADD()"
+         id="BTN" class="btn btn-outline-warning">+</button><p style="color:rgb(153, 245, 245); margin-left: 130px;margin-bottom: 80px;margin-top: -56px;position: absolute;display: none;" id="employee">ADD EMPLOYEE</p>
+        </div>
+        <form class="well form-horizontal" id="contact_form" method="POST" style="display:none;">
+        <fieldset>
+        
+        <!-- Form Name -->
+        <legend style="text-align:center;"><h2><b>Employee Registration Form</b></h2></legend><br>
+        
+        <!-- Text input-->
+        
+        <div class="form-group">
+          <label class="col-md-4 control-label" id="fname">First Name</label>  
+          <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input id="fname" name="firstName" placeholder="First Name" required class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        
+        <div class="form-group">
+          <label class="col-md-4 control-label" >Last Name</label> 
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input name="lastName" placeholder="Last Name" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="col-md-4 control-label" >Address</label> 
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-address-book-o"></i></span>
+          <input name="Address" placeholder="Address" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+        
+              
+        <!-- Text input-->
+               <div class="form-group">
+          <label class="col-md-4 control-label">E-Mail</label>  
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+          <input name="email" placeholder="E-Mail Address" required class="form-control" id="emailId"  type="email">
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        
+        <div class="form-group">
+          <label class="col-md-4 control-label" >Password</label> 
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-key"></i></span>
+          <input name="password" placeholder="Password" required class="form-control" id="pass"  type="password">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        
+        <div class="form-group">
+          <label class="col-md-4 control-label" >Confirm Password</label> 
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-key"></i></span>
+          <input name="confirm_password" placeholder="Confirm Password" id="confirm" class="form-control" required oninput="CONFIRM()"  type="password">
+        </div>
+        <span style="display:none;color: red;" id="msg">password doesnot match</span>
+          </div>
+        </div>
+        <!-- Text input-->
+        
+        <div class="form-group">
+            <label class="col-md-4 control-label">Contact No.</label>  
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                    <input name="contact_no" placeholder="(+91)" class="form-control" type="number">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Text input-->
+        
+        <div class="form-group">
+            <label class="col-md-4 control-label">photos</label>  
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-camera-retro fa-lg"></i></span>
+                    <input name="photos" id="photos" required placeholder="image" class="form-control" type="file">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-4"><br>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning"  id="SUBMIT">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+            </div>
+        </div>                 
+
+    </fieldset>    
+</form> 
+
+
+<style>
+  .container{
+    border:2px solid black;
+    background-color: whitesmoke;
+  }
+  h1{text-align: center;}
+  body {
+            counter-reset: Serial;   /* Set the Serial counter to 0 */
+        }
+        table {
+            border-collapse: separate;
+        }
+        tr td:first-child:before {
+            counter-increment: Serial;      /* Increment the Serial counter */
+            content:counter(Serial); /* Display the counter */
+        }
+    a:hover {
+      cursor: pointer;
+    }
+
+</style>
+<div id="adminContent" class="container">
+  <h1>ADMIN PANEL</h1><br>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Employee Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">email</th>
+        <th scope="col">mobile</th>
+        <th scope="col"><mark>action</mark></th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      
+    </tbody>
+  </table>
+</div> 
+<script src="signup.js"></script>      
+</body>
+</html>
